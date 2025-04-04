@@ -11,7 +11,7 @@ class Clima extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/fundoHome.png"),
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.cover,
           ),
         ),
         child: Column(
