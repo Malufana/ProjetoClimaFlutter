@@ -1,5 +1,7 @@
 import 'package:climaapp/clima.dart';
+import 'package:climaapp/history.dart';
 import 'package:climaapp/home.dart';
+import 'package:climaapp/post.dart';
 import 'package:flutter/material.dart';
 
 class NavApp extends StatefulWidget {
@@ -17,7 +19,9 @@ class _NavAppState extends State<NavApp> {
 
   static List<Widget> _widgetOptions = <Widget>[
     Clima(),
-    ClimaTela()
+    ClimaTela(),
+    ClimaHistoryScreen(),
+    PostClimateScreen()
   ];
 
   void showItemTrap(int index){
@@ -45,10 +49,20 @@ class _NavAppState extends State<NavApp> {
             icon: Icon(Icons.cloud),
             label: 'Monitoramento',
             backgroundColor: Color.fromARGB(255, 0, 50, 136)
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.history),
+            label: 'Historico',
+            backgroundColor: Color.fromARGB(255, 103, 163, 212)
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add),
+            label: 'Adicionar',
+            backgroundColor: Color.fromARGB(255, 177, 58, 58)
           )
         ],
         currentIndex: selectIndex,
-        selectedItemColor:Colors.redAccent,
+        selectedItemColor:const Color.fromARGB(255, 96, 200, 226),
         onTap: showItemTrap,
       ),
     );

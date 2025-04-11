@@ -35,33 +35,56 @@ class _ClimaTelaState extends State<ClimaTela> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue,
       appBar: AppBar(
-        title: Text('Clima - Monte Mor'),
+        backgroundColor: Colors.blueAccent,
+        title: Text('Clima - Monte Mor',
+          style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
-        toolbarHeight: 150,
+        toolbarHeight: 120,
+        elevation: 6,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(30))
+        ),
       ),
-      body: Center(
-        child: Container(
-          padding: EdgeInsets.all(16),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+            child: Column(
             children: [
-              Text(
-              "Temperatura: $temperatura °C",
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 20),
-              Text(
-                "Umidade: $umidade °C",
-                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 20),
-              Text(
-                "Probabilidade de Chuva: $chuva %",
-                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
+              Card(
+                elevation: 6,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(24.0),
+                  child: Column(
+                    children: [
+                      Icon(Icons.thermostat, size: 48, color: Colors.deepOrange),
+                      SizedBox(height: 16),
+                      Text(
+                        "Temperatura: $temperatura °C",
+                        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        "Umidade: $umidade °C",
+                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        "Probabilidade de Chuva: $chuva %",
+                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
+          ), 
         )
       ),
     );
